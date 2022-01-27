@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:insert="/index.html :: head">
+    <meta charset="UTF-8">
+    <title>Logowanie</title>
+</head>
+<body>
+
+
+<header th:replace="/index.html :: header"></header>
+
+<div style="text-align: center;">
+<h1>Login to Your Account</h1><br>
+
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+<form method='POST' th:action="@{/perform_login}" name="f">
+    <div th:if="${param.error}" class="alert alert-error">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}" class="alert alert-success">
+        You have been logged out.
+    </div>
+    <input type="text" name="username" placeholder="Username" id="userName">
+    <input type="password" name="password" placeholder="Password" id="userPassword">
+    <input type="submit" name="submit" class="modal-submit" value="login">
+</form>
+
+</div>
+
+<script>
+
+    $("#loginName").remove();
+</script>
+
+<footer th:replace="/index.html :: footer"></footer>
+</body>
+</html>

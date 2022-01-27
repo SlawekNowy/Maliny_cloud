@@ -1,4 +1,6 @@
 function loginFunction(){
+
+	//this should be serverside
 	if((($("#userName").val() == "Adam")) && ($("#userPassword").val() == "qwerty")){
 		localStorage.setItem("name", $("#userName").val());
 	}else{

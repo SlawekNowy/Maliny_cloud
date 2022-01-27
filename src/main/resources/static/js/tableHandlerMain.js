@@ -105,7 +105,7 @@ function insertTableHeader(table_header,string_id) {
 }
 
 function fetchOrders() {
-    //stub
+    //stub : AJAX here
     return `{
   "table": [
     [

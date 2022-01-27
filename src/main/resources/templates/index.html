@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+
+
+
+  <!-- Bootstrap core CSS -->
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+  <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+  <script th:src="@{/js/jquery.min.js}"></script>
+  <script th:src="@{/js/loader.js}"></script>
+  <!--<script src="js/login.js"></script>-->
+
+
+  <!--<script src="js/tableHandlerMain.js"></script> -->
+
+
+
+  <!-- Custom styles for this template -->
+  <link th:href="@{/css/maliny.css}" rel="stylesheet">
+</head>
+
+<body onload="loadFunction()">
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/home.html}">Skup owoców</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item non-anonymous">
+              <a class="nav-link active" aria-current="page" th:href="@{/home.html}">Strona Główna</a>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item non-anonymous">
+              <a class="nav-link" th:href="@{/table.html}" id="table_fruit" tabindex="">Lista owoców</a>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item non-anonymous">
+              <a class="nav-link" th:href="@{/table.html}" id="table_orders" tabindex="">Lista zamówień</a>
+            </li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item non-anonymous">
+              <a class="nav-link" th:href="@{/table.html}" id="table_clients">Lista klientów</a>
+            </li>
+          </ul>
+          <div class="nav-item">
+
+            <!--suppress XmlDuplicatedId -->
+            <!-- Those are mutually exclusive -->
+            <a sec:authorize="isAnonymous()" class="nav-link" th:href="@{/login.html}" id="loginName" >Login</a>
+            <!--suppress XmlDuplicatedId -->
+            <a sec:authorize="isAuthenticated()" class="nav-link" href="javascript: document.logoutForm.submit() "id="loginName" >Logout</a>
+
+
+            <form name="logoutForm" th:action="@{/perform_logout}" th:hidden="true" method="post">
+              <input type="submit" name="logout" class="modal-submit" value="Logout">
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <main>
+
+
+
+    <div class="content">
+      <div id="content_body">
+        <div id="mainpage_container">
+
+
+        </div>
+      </div>
+
+      <div sec:authorize="hasRole('ROLE_ADMIN')">
+        This content is only shown to administrators.
+      </div>
+      <div sec:authorize="hasRole('ROLE_USER')">
+        This content is only shown to users.
+      </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer class="container">
+      <p class="float-end"><a href="#">Back to top</a></p>
+      <p>&copy; Sławomir Śpiewak 2021-2022</p>
+    </footer>
+  </main>
+
+  <!--
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+
+
+
+      <div class="modal-content" style="text-align: center;">
+        <h1>Login to Your Account</h1><br>
+        <form method='POST' th:action="@{/index}" name="f">
+            <div th:if="${param.error}" class="alert alert-error">
+                Invalid username and password.
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success">
+                You have been logged out.
+            </div>
+          <input type="text" name="username" placeholder="Username" id="userName">
+          <input type="password" name="password" placeholder="Password" id="userPassword">
+          <input type="submit" name="submit" class="modal-submit" value="login">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="logout-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-bottom-0">
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <h1>Logout from Your Account</h1><br>
+        <form th:action="@{/perform_logout}">
+          <input type="submit" name="logout" class="modal-submit" value="Logout">
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+-->
+
+</body>
+
+</html>

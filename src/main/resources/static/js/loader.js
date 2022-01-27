@@ -4,7 +4,7 @@ $('a').on("click",function(){
 
 	if(page != "#"){
 		$("#mainpage_container").load(page);
-		if(page == "register.html"){
+		if(page == "/register"){
 			$("#login-bs-modal").modal('hide');
 		}
 
@@ -35,7 +35,7 @@ function loadFunction() {
 		$("#loginName").attr("data-bs-target", "#logout-modal");
 	}
 
-	return false;
+	return true;
 }
 
 function chooseCategory() {
