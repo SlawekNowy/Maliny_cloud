@@ -12,7 +12,7 @@ public class Owoce {
     @Column(name = "id_owoca", nullable = false)
     private Integer id;
 
-    @Column(name = "owoc", nullable = false)
+    @Column(name = "owoc", nullable = false, length = 256)
     private String owoc;
 
     @Column(name = "cena_skupu", nullable = false, precision = 131089)
@@ -21,22 +21,19 @@ public class Owoce {
     @Column(name = "cena_sprzedazy", nullable = false, precision = 131089)
     private BigDecimal cenaSprzedazy;
 
-    @Column(name = "ilosc_w_posiadaniu", nullable = false, precision = 131089)
-    private BigDecimal iloscWPosiadaniu;
-
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_miary", nullable = false)
     private Miary idMiary;
 
-    @Column(name = "data_transakcji", nullable = false)
-    private LocalDate dataTransakcji;
+    @Column(name = "data_cen")
+    private LocalDate dataCen;
 
-    public LocalDate getDataTransakcji() {
-        return dataTransakcji;
+    public LocalDate getDataCen() {
+        return dataCen;
     }
 
-    public void setDataTransakcji(LocalDate dataTransakcji) {
-        this.dataTransakcji = dataTransakcji;
+    public void setDataCen(LocalDate dataCen) {
+        this.dataCen = dataCen;
     }
 
     public Miary getIdMiary() {
@@ -45,14 +42,6 @@ public class Owoce {
 
     public void setIdMiary(Miary idMiary) {
         this.idMiary = idMiary;
-    }
-
-    public BigDecimal getIloscWPosiadaniu() {
-        return iloscWPosiadaniu;
-    }
-
-    public void setIloscWPosiadaniu(BigDecimal iloscWPosiadaniu) {
-        this.iloscWPosiadaniu = iloscWPosiadaniu;
     }
 
     public BigDecimal getCenaSprzedazy() {

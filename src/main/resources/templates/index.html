@@ -47,24 +47,27 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/home.html}">Skup owoców</a>
+        <a class="navbar-brand" th:href="@{/index.html}">Skup owoców</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
           aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item non-anonymous">
+            <li class="nav-item">
               <a class="nav-link active" aria-current="page" th:href="@{/home.html}">Strona Główna</a>
             </li>
-            <li sec:authorize="isAuthenticated()" class="nav-item non-anonymous">
-              <a class="nav-link" th:href="@{/table.html}" id="table_fruit" tabindex="">Lista owoców</a>
+            <li sec:authorize="isAuthenticated()" class="nav-item">
+              <a class="nav-link" th:href="@{/table(dataID=fruits)}"  tabindex="">Lista owoców</a>
             </li>
-            <li sec:authorize="isAuthenticated()" class="nav-item non-anonymous">
-              <a class="nav-link" th:href="@{/table.html}" id="table_orders" tabindex="">Lista zamówień</a>
+            <li sec:authorize="isAuthenticated()" class="nav-item">
+              <a class="nav-link" th:href="@{/table(dataID=orders)}" tabindex="">Lista zamówień</a>
             </li>
-            <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item non-anonymous">
-              <a class="nav-link" th:href="@{/table.html}" id="table_clients">Lista klientów</a>
+            <li sec:authorize="isAuthenticated()" class="nav-item">
+              <a class="nav-link" th:href="@{/table(dataID=clients)}" tabindex="">Lista klientów</a>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item">
+              <a class="nav-link" th:href="@{/table(dataID=deliveries)}" tabindex="">Lista dostaw</a>
             </li>
           </ul>
           <div class="nav-item">
@@ -98,12 +101,6 @@
         </div>
       </div>
 
-      <div sec:authorize="hasRole('ROLE_ADMIN')">
-        This content is only shown to administrators.
-      </div>
-      <div sec:authorize="hasRole('ROLE_USER')">
-        This content is only shown to users.
-      </div>
 
     </div>
 

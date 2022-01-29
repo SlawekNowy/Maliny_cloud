@@ -5,18 +5,19 @@ import javax.persistence.*;
 @Entity
 @Table(name = "klienci")
 public class Klienci {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_klienta", nullable = false)
     private Integer id;
 
-    @Column(name = "nazwisko", nullable = false)
+    @Column(name = "nazwisko", nullable = false, length = 100)
     private String nazwisko;
 
-    @Column(name = "imie", nullable = false)
+    @Column(name = "imie", nullable = false, length = 100)
     private String imie;
 
-    @Column(name = "drugie_imie")
+    @Column(name = "drugie_imie", length = 100)
     private String drugieImie;
 
     @Column(name = "pesel", nullable = false, length = 11)

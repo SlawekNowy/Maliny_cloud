@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class DummyControllers {
+    // empty controllers for saving
 
     @RequestMapping("/index")
     public String index() {

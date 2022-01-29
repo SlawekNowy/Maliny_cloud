@@ -11,13 +11,13 @@ public class Miary {
     @Column(name = "id_miary", nullable = false)
     private Integer id;
 
-    @Column(name = "nazwa_miary", nullable = false)
+    @Column(name = "nazwa_miary", nullable = false, length = 256)
     private String nazwaMiary;
 
     @Column(name = "mnoznik_miary", nullable = false, precision = 131089)
     private BigDecimal mnoznikMiary;
 
-    @Column(name = "skrot_miary", nullable = false)
+    @Column(name = "skrot_miary", nullable = false, length = 10)
     private String skrotMiary;
 
     @Column(name = "jest_metryczna", nullable = false)

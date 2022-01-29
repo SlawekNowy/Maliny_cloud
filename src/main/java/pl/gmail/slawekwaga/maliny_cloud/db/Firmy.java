@@ -10,10 +10,10 @@ public class Firmy {
     @Column(name = "id_firmy", nullable = false)
     private Integer id;
 
-    @Column(name = "nazwa_firmy", nullable = false)
+    @Column(name = "nazwa_firmy", nullable = false, length = 250)
     private String nazwaFirmy;
 
-    @Column(name = "adres_firmy", nullable = false)
+    @Column(name = "adres_firmy", nullable = false, length = 250)
     private String adresFirmy;
 
     @Column(name = "nip", nullable = false, length = 12)

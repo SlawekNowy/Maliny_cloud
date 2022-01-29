@@ -2,6 +2,7 @@ package pl.gmail.slawekwaga.maliny_cloud.db;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "zamowienia")
@@ -15,10 +16,6 @@ public class Zamowienia {
     @JoinColumn(name = "id_zamawiajacego")
     private Firmy idZamawiajacego;
 
-    @ManyToOne
-    @JoinColumn(name = "id_klienta")
-    private Klienci idKlienta;
-
     @Column(name = "koszt_zamowienia", nullable = false, precision = 131089)
     private BigDecimal kosztZamowienia;
 
@@ -28,6 +25,29 @@ public class Zamowienia {
     @ManyToOne
     @JoinColumn(name = "id_miary")
     private Miary idMiary;
+
+    @ManyToOne
+    @JoinColumn(name = "id_owoca")
+    private Owoce idOwoca;
+
+    @Column(name = "data_zamowienia")
+    private LocalDate dataZamowienia;
+
+    public LocalDate getDataZamowienia() {
+        return dataZamowienia;
+    }
+
+    public void setDataZamowienia(LocalDate dataZamowienia) {
+        this.dataZamowienia = dataZamowienia;
+    }
+
+    public Owoce getIdOwoca() {
+        return idOwoca;
+    }
+
+    public void setIdOwoca(Owoce idOwoca) {
+        this.idOwoca = idOwoca;
+    }
 
     public Miary getIdMiary() {
         return idMiary;
@@ -51,14 +71,6 @@ public class Zamowienia {
 
     public void setKosztZamowienia(BigDecimal kosztZamowienia) {
         this.kosztZamowienia = kosztZamowienia;
-    }
-
-    public Klienci getIdKlienta() {
-        return idKlienta;
-    }
-
-    public void setIdKlienta(Klienci idKlienta) {
-        this.idKlienta = idKlienta;
     }
 
     public Firmy getIdZamawiajacego() {

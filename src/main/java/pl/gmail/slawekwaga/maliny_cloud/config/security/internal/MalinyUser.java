@@ -6,16 +6,16 @@ import javax.persistence.*;
 @Table(name = "maliny_users")
 public class MalinyUser {
     @Id
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", nullable = false, length = 1024)
     private String username;
 
-    @Column(name = "password")
+    @Column(name = "password", length = 1024)
     private String password;
 
     @Column(name = "is_password_valid")
     private Boolean isPasswordValid;
 
-    @Column(name = "role")
+    @Column(name = "role", length = 30)
     private String role;
 
     public String getRole() {

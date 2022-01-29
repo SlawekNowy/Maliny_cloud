@@ -2,10 +2,12 @@ package pl.gmail.slawekwaga.maliny_cloud.db;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "dostawy")
 public class Dostawy {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_dostawy", nullable = false)
@@ -25,6 +27,28 @@ public class Dostawy {
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_owoca", nullable = false)
     private Owoce idOwoca;
+
+    @Column(name = "data", nullable = false)
+    private LocalDate data;
+
+    @Column(name = "koszt_owocow", precision = 131089)
+    private BigDecimal kosztOwocow;
+
+    public BigDecimal getKosztOwocow() {
+        return kosztOwocow;
+    }
+
+    public void setKosztOwocow(BigDecimal kosztOwocow) {
+        this.kosztOwocow = kosztOwocow;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
 
     public Owoce getIdOwoca() {
         return idOwoca;

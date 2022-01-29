@@ -8,10 +8,11 @@ $('a').on("click",function(){
 			$("#login-bs-modal").modal('hide');
 		}
 
+		/*
 		if(page=="table.html") {
 			if(typeof id !== 'undefined' ) {
 				$('body').attr('id',id+"_body")
-				$(initializeTable); //calls when document is ready
+				//$(initializeTable); //calls when document is ready
 			} else {
 				//this is an error
 				prompt("Nie podano identyfikatora linku tabeli. Proszę poinformować administratora o błędzie");
@@ -23,6 +24,7 @@ $('a').on("click",function(){
 				$('body').removeAttr('id');
 			}
 		}
+		*/
 		return false;
 	}
 });
