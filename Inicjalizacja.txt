@@ -1,0 +1,7 @@
+Do tej aplikacji użyto bazy danych PostgresSQL.
+
+Proszę zainstalować bazę i przywrócić ją za pomocą pliku postgres_dump.sql
+
+Następnie należy ustawić zmienną środowiskową DATABASE_URL. Musi ona widnieć w następującej postaci: postgresql://localhost:5432/postgres (nazwa bazy i port mogą ulec zmianie)
+
+Login: admin, Hasło: adminPass.

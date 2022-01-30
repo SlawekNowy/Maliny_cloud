@@ -58,16 +58,16 @@
               <a class="nav-link active" aria-current="page" th:href="@{/home.html}">Strona Główna</a>
             </li>
             <li sec:authorize="isAuthenticated()" class="nav-item">
-              <a class="nav-link" th:href="@{/table(dataID=fruits)}"  tabindex="">Lista owoców</a>
+              <a class="nav-link" th:href="@{/table_fruits}"  tabindex="">Lista owoców</a>
             </li>
             <li sec:authorize="isAuthenticated()" class="nav-item">
-              <a class="nav-link" th:href="@{/table(dataID=orders)}" tabindex="">Lista zamówień</a>
+              <a class="nav-link" th:href="@{/table_orders}" tabindex="">Lista zamówień</a>
             </li>
             <li sec:authorize="isAuthenticated()" class="nav-item">
-              <a class="nav-link" th:href="@{/table(dataID=clients)}" tabindex="">Lista klientów</a>
+              <a class="nav-link" th:href="@{/table_clients}" tabindex="">Lista klientów</a>
             </li>
             <li sec:authorize="isAuthenticated()" class="nav-item">
-              <a class="nav-link" th:href="@{/table(dataID=deliveries)}" tabindex="">Lista dostaw</a>
+              <a class="nav-link" th:href="@{/table_deliveries}" tabindex="">Lista dostaw</a>
             </li>
           </ul>
           <div class="nav-item">
